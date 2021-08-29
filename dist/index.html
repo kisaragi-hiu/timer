@@ -4,6 +4,24 @@
     <!-- Use https://realfavicongenerator.net -->
     <!-- Other stuff -->
     <title>Timer</title>
+    <script>
+      // https://answers.netlify.com/t/bug-in-non-trailing-slash-rewrite/452/24
+      // When accessing this from a redirect on Netlify (so
+      // kisaragi-hiu.com/timer -> wherever this is deployed),
+      // relative paths only work when there is a trailing slash,
+      // despite the doc claiming that they're equivalent.
+      //
+      // This is because it sees itself as timer.html and not
+      // timer/index.html.
+      //
+      // I guess we just have to work around it like this. FML.
+      if (
+        (window.location.href.match(/\//g) || []).length > 2 &&
+        !window.location.href.endsWith("/")
+      ) {
+        window.location.href = window.location.href + "/";
+      }
+    </script>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta
