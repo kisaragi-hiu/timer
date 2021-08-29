@@ -19,12 +19,9 @@
   <body class="flex flex-col items-center justify-center gap-4 h-screen">
     <div class="w-72 -ml-32">
       <h1>碼錶</h1>
-      <div
-        class="my-8 text-xl font-bold break-words overflow-y-auto h-64"
-        id="display"
-      >
+      <div class="my-8 text-xl overflow-y-auto h-64" id="display">
         <div id="counter">0</div>
-        <table id="result-table">
+        <table class="w-full text-left" id="result-table">
           <thead>
             <tr>
               <th>lap</th>
@@ -34,13 +31,13 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Rendered with newRow(). Will look like:
-                 <tr>
-                   <th>1</th>
+            <!-- Rendered with newRow(). Will look like: -->
+            <!-- <tr>
+                   <td>1</td>
                    <td>30</td>
                    <td>24</td>
                    <td>60</td>
-                 </tr> -->
+                   </tr> -->
           </tbody>
         </table>
       </div>

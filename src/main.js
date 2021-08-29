@@ -49,7 +49,7 @@ function resetState() {
 
 function newRow(lap, duration) {
   const tr = document.createElement("tr");
-  const elem_lap = document.createElement("th");
+  const elem_lap = document.createElement("td");
   const elem_dur = document.createElement("td");
   const elem_dur_24 = document.createElement("td");
   const elem_dur_60 = document.createElement("td");
