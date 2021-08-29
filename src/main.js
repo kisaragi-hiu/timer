@@ -22,10 +22,11 @@ function msToDisplay(ms) {
   const hours = Math.floor(ms / 1000 / 3600);
   const minutes = Math.floor((ms / 1000 - hours * 3600) / 60);
   const seconds = Math.floor(ms / 1000 - hours * 3600 - minutes * 60);
-  return `${`${hours}`.padStart(2, "0")}:${`${minutes}`.padStart(
-    2,
-    "0"
-  )}:${`${seconds}`.padStart(2, "0")}.${ms % 1000}`;
+  const h_str = `${hours}`.padStart(2, "0");
+  const m_str = `${minutes}`.padStart(2, "0");
+  const s_str = `${seconds}`.padStart(2, "0");
+  const ms_str = `${ms % 1000}`.padEnd(3, "0");
+  return `${h_str}:${m_str}:${s_str}.${ms_str}`;
 }
 
 // Model
@@ -54,7 +55,7 @@ function newRow(lap, duration) {
   const elem_dur_24 = document.createElement("td");
   const elem_dur_60 = document.createElement("td");
   elem_lap.innerText = `${lap}`;
-  elem_dur.innerText = `${msToDisplay(duration / 1000)}`;
+  elem_dur.innerText = `${msToDisplay(duration)}`;
   elem_dur_24.innerText = `${msToFrames(duration, 24)}`;
   elem_dur_60.innerText = `${msToFrames(duration, 60)}`;
   for (const elem of [elem_lap, elem_dur, elem_dur_24, elem_dur_60]) {
