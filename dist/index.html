@@ -20,15 +20,34 @@
     <div class="w-72 -ml-32">
       <h1>碼錶</h1>
       <div
-        class="my-8 text-xl font-bold break-words overflow-y-auto h-32"
+        class="my-8 text-xl font-bold break-words overflow-y-auto h-64"
         id="display"
       >
-        ///
+        <div id="counter">0</div>
+        <table id="result-table">
+          <thead>
+            <tr>
+              <th>lap</th>
+              <th>duration</th>
+              <th>1/24</th>
+              <th>1/60</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rendered with newRow(). Will look like:
+                 <tr>
+                   <th>1</th>
+                   <td>30</td>
+                   <td>24</td>
+                   <td>60</td>
+                 </tr> -->
+          </tbody>
+        </table>
       </div>
       <div class="flex flex-col gap-y-2">
         <div class="flex gap-x-2">
-          <button id="start">Start</button><button id="lap">Lap</button
-          ><button id="end">End</button>
+          <button id="start">Start</button><button id="lap" disabled>Lap</button
+          ><button id="end" disabled>End</button>
         </div>
         <div><button id="reset">Reset</button></div>
       </div>

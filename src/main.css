@@ -10,5 +10,6 @@
   button {
     @apply px-2 rounded border-2 border-green-500;
     @apply hover:bg-green-500 hover:text-white;
+    @apply disabled:opacity-50 disabled:hover:text-inherit disabled:hover:bg-inherit;
   }
 }
