@@ -26,4 +26,4 @@ jobs:
           target-branch: "release"
           commit-message: "Deploy to Git"
           path: |
-            dist/
+            dist/*
