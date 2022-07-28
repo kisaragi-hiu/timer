@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+env:
+  "GITHUB_REPOSITORY": $GITHUB_REPOSITORY
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,10 +23,12 @@ jobs:
         run: |
           make build
       - name: "Push"
-        uses: dfm/force-push-branch-action@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          target-branch: "release"
-          commit-message: "Deploy to Git"
-          path: |
-            dist/*
+        run: |
+          git config user.name "Built on CI"
+          git config user.email "mail@kisaragi-hiu.com"
+          cd dist
+          mv ../.git .
+          git checkout --orphan release
+          git add .
+          git commit -m "Deploy to Git"
+          git push --force origin release
