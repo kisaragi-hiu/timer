@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Use https://realfavicongenerator.net -->
+    <!-- Other stuff -->
+    <title>Timer</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+
+    <meta name="author" content="Kisaragi Hiu" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="built.css" type="text/css" />
+  </head>
+  <body class="flex flex-col items-center justify-center gap-4 h-screen">
+    <div class="w-72 -ml-32">
+      <div class="my-8 text-xl overflow-y-auto h-64" id="display">
+        <h1 id="counter">0</h1>
+        <table class="w-full text-left" id="result-table">
+          <thead>
+            <tr>
+              <th>lap</th>
+              <th>duration</th>
+              <th>1/24</th>
+              <th>1/60</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rendered with newRow(). Will look like: -->
+            <!-- <tr>
+                   <td>1</td>
+                   <td>30</td>
+                   <td>24</td>
+                   <td>60</td>
+                   </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div class="flex flex-col gap-y-2">
+        <div class="flex gap-x-2">
+          <button id="start">Start</button><button id="lap" disabled>Lap</button
+          ><button id="end" disabled>End</button>
+        </div>
+        <div><button id="reset">Reset</button></div>
+      </div>
+    </div>
+    <script src="built.js"></script>
+  </body>
+</html>
