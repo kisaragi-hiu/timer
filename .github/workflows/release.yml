@@ -1,0 +1,29 @@
+name: "release"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Set up Node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: "Install dependencies"
+        run: |
+          npm install
+      - name: "Build"
+        run: |
+          make build
+      - name: "Push"
+        uses: dfm/force-push-branch-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          target-branch: "release"
+          commit-message: "Deploy to Git"
+          path: |
+            dist/
