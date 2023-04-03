@@ -5,6 +5,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "built.js",
+    // Don't use the default md4. md"4".
+    // https://stackoverflow.com/questions/69394632/
+    hashFunction: "sha256",
   },
   devServer: {
     static: {
